@@ -48,7 +48,7 @@ class ProductCard extends StatelessWidget {
                   color: AppColors.textMuted,
                   onTap: onEdit,
                 ),
-                const SizedBox(width: 6),
+                const SizedBox(width: 10),
                 _ActionIcon(
                   icon: product.isActive
                       ? LucideIcons.pauseCircle
@@ -56,7 +56,7 @@ class ProductCard extends StatelessWidget {
                   color: AppColors.textMuted,
                   onTap: () => _confirmPause(context),
                 ),
-                const SizedBox(width: 6),
+                const SizedBox(width: 10),
                 _ActionIcon(
                   icon: LucideIcons.trash2,
                   color: const Color(0xFFEF4444),
@@ -96,12 +96,12 @@ class ProductCard extends StatelessWidget {
     _showConfirm(
       context: context,
       icon: product.isActive ? LucideIcons.pauseCircle : LucideIcons.playCircle,
-      iconColor: const Color(0xFFF59E0B),
+      iconColor: const Color(0xFFB8860B),
       title: product.isActive ? 'Pausar producto' : 'Reactivar producto',
       message:
           '¿Deseas $action "${product.name}"? ${product.isActive ? 'No aparecerá disponible para agregar a órdenes.' : 'Volverá a estar disponible.'}',
       confirmLabel: product.isActive ? 'Pausar' : 'Reactivar',
-      confirmColor: const Color(0xFFF59E0B),
+      confirmColor: const Color(0xFFB8860B),
       onConfirm: onTogglePause,
     );
   }
@@ -138,38 +138,38 @@ void _showConfirm({
     barrierColor: Colors.black54,
     builder: (_) => Dialog(
       backgroundColor: const Color(0xFF1E1C1A),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       child: SizedBox(
-        width: 380,
+        width: 520,
         child: Padding(
-          padding: const EdgeInsets.all(28),
+          padding: const EdgeInsets.all(44),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                width: 52,
-                height: 52,
+                width: 64,
+                height: 64,
                 decoration: BoxDecoration(
-                  color: iconColor.withValues(alpha: 0.12),
+                  color: iconColor.withValues(alpha: 0.10),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(icon, size: 24, color: iconColor),
+                child: Icon(icon, size: 28, color: iconColor),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 20),
               Text(
                 title,
                 style: AppTextStyles.outfitHeading(
-                    size: 17, weight: FontWeight.w600),
+                    size: 20, weight: FontWeight.w600),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 12),
               Text(
                 message,
                 style: AppTextStyles.manropeBody(
-                    size: 13, color: AppColors.textMuted),
+                    size: 14, color: AppColors.textMuted),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 28),
               Row(
                 children: [
                   Expanded(
@@ -179,14 +179,14 @@ void _showConfirm({
                         backgroundColor: AppColors.inputFill,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        padding: const EdgeInsets.symmetric(vertical: 13),
+                        padding: const EdgeInsets.symmetric(vertical: 18),
                       ),
                       child: Text('Cancelar',
                           style: AppTextStyles.manropeButton(
-                              size: 14, color: AppColors.textMuted)),
+                              size: 16, color: AppColors.textMuted)),
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 12),
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
@@ -195,13 +195,14 @@ void _showConfirm({
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: confirmColor,
+                        foregroundColor: Colors.white,
                         elevation: 0,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        padding: const EdgeInsets.symmetric(vertical: 13),
+                        padding: const EdgeInsets.symmetric(vertical: 18),
                       ),
                       child: Text(confirmLabel,
-                          style: AppTextStyles.manropeButton(size: 14)),
+                          style: AppTextStyles.manropeButton(size: 16)),
                     ),
                   ),
                 ],
@@ -225,7 +226,7 @@ class _ActionIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Icon(icon, size: 16, color: color),
+      child: Icon(icon, size: 20, color: color),
     );
   }
 }

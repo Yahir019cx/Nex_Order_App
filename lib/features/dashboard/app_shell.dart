@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nex_order_app/core/theme/app_colors.dart';
 import 'admin/screens/home_screen.dart';
+import 'admin/screens/inventory_screen.dart';
 import 'admin/screens/products_screen.dart';
 import 'admin/screens/tables_screen.dart';
 import 'widgets/app_sidebar.dart';
@@ -36,9 +37,10 @@ class _AppShellState extends State<AppShell> {
       };
 
   Widget get _screen => switch (_activeId) {
-        'tables'   => const TablesScreen(),
-        'products' => const ProductsScreen(),
-        _          => const HomeScreen(),
+        'tables'    => const TablesScreen(),
+        'products'  => const ProductsScreen(),
+        'inventory' => const InventoryScreen(),
+        _           => const HomeScreen(),
       };
 
   @override
