@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_text_styles.dart';
+import 'package:nex_order_app/core/theme/app_colors.dart';
+import 'package:nex_order_app/core/theme/app_text_styles.dart';
 
 // ── Modelo de notificación ────────────────────────────────────────────────────
 
@@ -193,7 +193,10 @@ class _BellButton extends StatelessWidget {
           targetAnchor: Alignment.bottomRight,
           followerAnchor: Alignment.topRight,
           offset: const Offset(0, 8),
-          child: dropdown,
+          child: Align(
+            alignment: Alignment.topRight,
+            child: dropdown,
+          ),
         ),
         child: Stack(
           clipBehavior: Clip.none,
@@ -266,7 +269,10 @@ class _UserMenuButton extends StatelessWidget {
           targetAnchor: Alignment.bottomRight,
           followerAnchor: Alignment.topRight,
           offset: const Offset(0, 8),
-          child: dropdown,
+          child: Align(
+            alignment: Alignment.topRight,
+            child: dropdown,
+          ),
         ),
         child: Material(
           color: Colors.transparent,
@@ -355,6 +361,7 @@ class _NotificationsDropdown extends StatelessWidget {
                 Flexible(
                   child: ListView.separated(
                     shrinkWrap: true,
+                    padding: EdgeInsets.zero,
                     itemCount: notifications.length,
                     separatorBuilder: (_, _) =>
                         const Divider(color: Color(0xFF3A3835), height: 1),

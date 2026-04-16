@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_text_styles.dart';
+import 'package:nex_order_app/core/theme/app_colors.dart';
+import 'package:nex_order_app/core/theme/app_text_styles.dart';
 
 class LoginInputField extends StatefulWidget {
   final String hint;

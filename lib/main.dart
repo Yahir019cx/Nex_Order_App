@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'features/Auth/login_screen.dart';
 import 'features/dashboard/app_shell.dart';
-import 'features/dashboard/screens/home_screen.dart';
 
 void main() {
   runApp(const NexOrderApp());
@@ -17,7 +16,7 @@ class NexOrderApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const LoginScreen(),
       routes: {
-        '/dashboard': (_) => const AppShell(child: HomeScreen()),
+        '/dashboard': (_) => const AppShell(),
       },
     );
   }

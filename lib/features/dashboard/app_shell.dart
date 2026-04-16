@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../core/theme/app_colors.dart';
+import 'package:nex_order_app/core/theme/app_colors.dart';
+import 'admin/screens/home_screen.dart';
+import 'admin/screens/tables_screen.dart';
 import 'widgets/app_sidebar.dart';
 import 'widgets/app_top_bar.dart';
 
 class AppShell extends StatefulWidget {
-  final Widget child;
-
-  const AppShell({super.key, required this.child});
+  const AppShell({super.key});
 
   @override
   State<AppShell> createState() => _AppShellState();
@@ -20,8 +20,7 @@ class _AppShellState extends State<AppShell> {
 
   void _handleNavigate(String id) => setState(() => _activeId = id);
 
-  void _handleLogout() =>
-      Navigator.pushReplacementNamed(context, '/');
+  void _handleLogout() => Navigator.pushReplacementNamed(context, '/');
 
   String get _moduleName => switch (_activeId) {
         'home'      => 'Inicio',
@@ -33,6 +32,11 @@ class _AppShellState extends State<AppShell> {
         'cut'       => 'Corte de Caja',
         'settings'  => 'Configuración',
         _           => '',
+      };
+
+  Widget get _screen => switch (_activeId) {
+        'tables' => const TablesScreen(),
+        _        => const HomeScreen(),
       };
 
   @override
@@ -54,7 +58,7 @@ class _AppShellState extends State<AppShell> {
                   moduleName: _moduleName,
                   onLogout: _handleLogout,
                 ),
-                Expanded(child: widget.child),
+                Expanded(child: _screen),
               ],
             ),
           ),

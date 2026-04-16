@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import '../../../core/theme/app_colors.dart';
-import '../../../core/theme/app_text_styles.dart';
+import 'package:nex_order_app/core/theme/app_colors.dart';
+import 'package:nex_order_app/core/theme/app_text_styles.dart';
 import 'app_top_bar.dart';
 
 // ── Modelo de item ────────────────────────────────────────────────────────────

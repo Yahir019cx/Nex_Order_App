@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../core/theme/app_colors.dart';
+import 'package:nex_order_app/core/theme/app_colors.dart';
 import 'widgets/login_brand_panel.dart';
 import 'widgets/login_form_panel.dart';
 
