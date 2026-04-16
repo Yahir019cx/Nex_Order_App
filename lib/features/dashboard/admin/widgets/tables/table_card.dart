@@ -7,8 +7,14 @@ import 'package:nex_order_app/core/theme/app_text_styles.dart';
 class TableCard extends StatelessWidget {
   final TableModel table;
   final VoidCallback? onTap;
+  final bool isSelected;
 
-  const TableCard({super.key, required this.table, this.onTap});
+  const TableCard({
+    super.key,
+    required this.table,
+    this.onTap,
+    this.isSelected = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +31,12 @@ class TableCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.formPanel,
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: const Color(0xFF3A3835)),
+            border: Border.all(
+              color: isSelected
+                  ? AppColors.accent
+                  : const Color(0xFF3A3835),
+              width: isSelected ? 1.5 : 1,
+            ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

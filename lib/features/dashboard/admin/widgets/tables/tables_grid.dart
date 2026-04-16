@@ -5,13 +5,20 @@ import 'add_table_card.dart';
 
 class TablesGrid extends StatelessWidget {
   final List<TableModel> tables;
+  final int? selectedId;
+  final void Function(TableModel)? onTableTap;
   final VoidCallback? onAddTable;
 
-  const TablesGrid({super.key, required this.tables, this.onAddTable});
+  const TablesGrid({
+    super.key,
+    required this.tables,
+    this.selectedId,
+    this.onTableTap,
+    this.onAddTable,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // +1 para la card de agregar mesa
     final itemCount = tables.length + 1;
 
     return GridView.builder(
@@ -25,7 +32,12 @@ class TablesGrid extends StatelessWidget {
       itemCount: itemCount,
       itemBuilder: (_, i) {
         if (i < tables.length) {
-          return TableCard(table: tables[i]);
+          final table = tables[i];
+          return TableCard(
+            table: table,
+            isSelected: table.id == selectedId,
+            onTap: () => onTableTap?.call(table),
+          );
         }
         return AddTableCard(onTap: onAddTable);
       },
