@@ -4,6 +4,7 @@ import 'admin/screens/home_screen.dart';
 import 'admin/screens/inventory_screen.dart';
 import 'admin/screens/products_screen.dart';
 import 'admin/screens/tables_screen.dart';
+import 'admin/screens/users_screen.dart';
 import 'widgets/app_sidebar.dart';
 import 'widgets/app_top_bar.dart';
 
@@ -40,6 +41,7 @@ class _AppShellState extends State<AppShell> {
         'tables'    => const TablesScreen(),
         'products'  => const ProductsScreen(),
         'inventory' => const InventoryScreen(),
+        'users'     => const UsersScreen(),
         _           => const HomeScreen(),
       };
 
