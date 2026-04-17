@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nex_order_app/core/theme/app_colors.dart';
+import 'admin/screens/cashier_screen.dart';
 import 'admin/screens/home_screen.dart';
 import 'admin/screens/inventory_screen.dart';
 import 'admin/screens/products_screen.dart';
@@ -42,6 +43,7 @@ class _AppShellState extends State<AppShell> {
         'products'  => const ProductsScreen(),
         'inventory' => const InventoryScreen(),
         'users'     => const UsersScreen(),
+        'cashier'   => const CashierScreen(),
         _           => const HomeScreen(),
       };
 

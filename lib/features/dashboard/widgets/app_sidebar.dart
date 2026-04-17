@@ -19,8 +19,8 @@ const _menuItems = [
   SidebarItem(id: 'products',  label: 'Productos',      icon: LucideIcons.package),
   SidebarItem(id: 'inventory', label: 'Inventario',     icon: LucideIcons.warehouse),
   SidebarItem(id: 'users',     label: 'Usuarios',       icon: LucideIcons.users),
-  SidebarItem(id: 'cashier',   label: 'Caja',           icon: LucideIcons.banknote),
-  SidebarItem(id: 'cut',       label: 'Corte',          icon: LucideIcons.receipt),
+  SidebarItem(id: 'cashier',   label: 'Caja',           icon: LucideIcons.coins),
+  SidebarItem(id: 'cut',       label: 'Corte',          icon: LucideIcons.calculator),
   SidebarItem(id: 'settings',  label: 'Configuración',  icon: LucideIcons.settings),
 ];
 
@@ -158,7 +158,7 @@ class _SidebarNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+      padding: const EdgeInsets.fromLTRB(10, 28, 10, 16),
       children: _menuItems
           .map((item) => _NavItem(
                 item: item,
@@ -194,7 +194,7 @@ class _NavItem extends StatelessWidget {
         // Cambia layout solo cuando hay espacio suficiente para el Row expandido
         final wide = constraints.maxWidth > 90;
         return Padding(
-          padding: const EdgeInsets.only(bottom: 4),
+          padding: const EdgeInsets.only(bottom: 15),
           child: Material(
             color: Colors.transparent,
             borderRadius: BorderRadius.circular(10),
